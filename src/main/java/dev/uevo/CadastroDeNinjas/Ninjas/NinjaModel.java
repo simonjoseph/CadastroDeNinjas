@@ -1,5 +1,6 @@
-package dev.uevo.CadastroDeNinjas;
+package dev.uevo.CadastroDeNinjas.Ninjas;
 
+import dev.uevo.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
 // Transfomar uma classe em uma entidade JPA
@@ -21,6 +22,14 @@ public class NinjaModel {
     private String nome;
     private int idade;
     private String email;
+
+    // A anotação @ManyToOne indica que um NinjaModel pode estar associado a várias
+    // MissoesModel, mas cada MissoesModel está associada a apenas um NinjaModel
+    // A anotação @JoinColumn especifica a coluna que será usada para a associação
+    // Isso cria uma relação entre as tabelas NinjaModel e MissoesModel no banco
+    @ManyToOne
+    @JoinColumn(name = "missao_id")  //Foreign key column in NinjaModel table
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
