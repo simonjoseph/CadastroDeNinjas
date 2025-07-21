@@ -2,6 +2,7 @@ package dev.uevo.CadastroDeNinjas.Ninjas;
 
 import dev.uevo.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+import lombok.*;
 
 // Transfomar uma classe em uma entidade JPA
 // A anotação @Entity indica que a classe NinjaModel é uma entidade JPA
@@ -15,6 +16,8 @@ import jakarta.persistence.*;
 // É importante garantir que a classe siga as convenções de nomenclatura e estrutura esperadas
 @Entity
 @Table(name = "tb_cadastro")
+@NoArgsConstructor
+@AllArgsConstructor
 public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,38 +33,5 @@ public class NinjaModel {
     @ManyToOne
     @JoinColumn(name = "missao_id")  //Foreign key column in NinjaModel table
     private MissoesModel missoes;
-
-    public NinjaModel() {
-    }
-
-    public NinjaModel(String nome, int idade, String email) {
-        this.nome = nome;
-        this.idade = idade;
-        this.email = email;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+    
 }

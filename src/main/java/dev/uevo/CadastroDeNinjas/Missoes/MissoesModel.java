@@ -4,9 +4,13 @@ import java.util.List;
 
 import dev.uevo.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "tb_missoes")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class MissoesModel {
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
@@ -24,34 +28,4 @@ public class MissoesModel {
     @OneToMany(mappedBy = "missoes", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<NinjaModel> ninjas;
 
-    public MissoesModel() {
-    }
-
-    public MissoesModel(String dificuladade, String nome) {
-        this.dificuladade = dificuladade;
-        this.nome = nome;
-    }
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDificuladade() {
-        return dificuladade;
-    }
-
-    public void setDificuladade(String dificuladade) {
-        this.dificuladade = dificuladade;
-    }
 }
