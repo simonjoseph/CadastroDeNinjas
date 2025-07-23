@@ -1,8 +1,8 @@
-package dev.uevo.CadastroDeNinjas.Missoes;
+package dev.uevo.CadastroDeNinjas.Missoes.model;
 
 import java.util.List;
 
-import dev.uevo.CadastroDeNinjas.Ninjas.NinjaModel;
+import dev.uevo.CadastroDeNinjas.Ninjas.model.NinjaModel;
 import jakarta.persistence.*;
 import lombok.*;
 
